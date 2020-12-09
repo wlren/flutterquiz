@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 
 class Result extends StatelessWidget {
   final int result;
+  final Function reset;
+
   String get resultString {
     var resultText = 'You did it!';
     if (result >= 12) {
@@ -18,15 +20,24 @@ class Result extends StatelessWidget {
     return resultText;
   }
 
-  Result(this.result);
+  Result(this.result, this.reset);
   @override
   Widget build(BuildContext context) {
     return Center(
-      child: Text(
-        resultString,
-        style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
-        textAlign: TextAlign.center,
-      ),
+      child: Column(children: [
+        Text(
+          resultString,
+          style: TextStyle(fontSize: 36, fontWeight: FontWeight.bold),
+          textAlign: TextAlign.center,
+        ),
+        FlatButton(
+          onPressed: reset,
+          child: Text(
+            'Restart quiz!',
+          ),
+          textColor: Colors.blue,
+        )
+      ]),
     );
   }
 }

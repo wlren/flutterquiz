@@ -22,7 +22,7 @@ class Quiz extends StatelessWidget {
             .map((answers) {
           return Answers(
               () => answerQuestion(answers['score']), answers['text']);
-        }).toList()
+        }).toList(),
       ],
     );
   }
